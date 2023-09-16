@@ -2,17 +2,23 @@ SOLID Principles
 ==============================
 1. Single Responsibility principle 
 ----------------------------------
-The Single Responsibility Principle (SRP) is one of the five principles of object-oriented programming known as SOLID. These principles were introduced by Robert C. Martin and are meant to guide software developers in writing more maintainable and scalable code. The Single Responsibility Principle, in particular, focuses on the concept of cohesion in software design.
+The Single Responsibility Principle (SRP) is one of the five principles of object-oriented programming known as SOLID. 
+These principles were introduced by Robert C. Martin and are meant to guide software developers in writing more maintainable and scalable code. 
+The Single Responsibility Principle, in particular, focuses on the concept of cohesion in software design.
 
 The Single Responsibility Principle states that:
 
 "A class should have only one reason to change."
 
-In other words, a class should have a single, well-defined responsibility or purpose within the software system. This principle encourages a separation of concerns and helps in creating classes that are more focused and easier to maintain. When a class has only one responsibility, it becomes less likely to undergo frequent changes, and any modifications that are necessary are more likely to be isolated to that specific responsibility.
+In other words, a class should have a single, well-defined responsibility or purpose within the software system. 
+This principle encourages a separation of concerns and helps in creating classes that are more focused and easier to maintain. 
+When a class has only one responsibility, it becomes less likely to undergo frequent changes, 
+and any modifications that are necessary are more likely to be isolated to that specific responsibility.
 
 Here are a few key points and benefits of adhering to the Single Responsibility Principle:
 
-Improved Maintainability: When a class has a single responsibility, it is easier to understand, test, and maintain. Changes to one responsibility are less likely to affect other parts of the code.
+Improved Maintainability: When a class has a single responsibility, it is easier to understand, test, and maintain. 
+Changes to one responsibility are less likely to affect other parts of the code.
 
 Easier Testing: Smaller, more focused classes are generally easier to write unit tests for because their behaviour is well-defined and isolated.
 
@@ -20,11 +26,15 @@ Reusability: Classes with a single responsibility can often be reused in differe
 
 Reduced Coupling: By separating responsibilities, you reduce the coupling between classes, making the codebase more flexible and less prone to unintended side effects.
 
-Improved Collaboration: Teams of developers can work more effectively when classes have clear and distinct responsibilities because they can work on different parts of the codebase without stepping on each other's toes.
+Improved Collaboration: Teams of developers can work more effectively when classes have clear and distinct responsibilities because they can work on 
+different parts of the codebase without stepping on each other's toes.
 
-To apply the Single Responsibility Principle, it's important to carefully analyze the responsibilities of each class in your software system and refactor them when necessary to ensure that each class has only one reason to change. If a class has multiple responsibilities, consider splitting it into multiple smaller classes, each with a single, well-defined responsibility.
+To apply the Single Responsibility Principle, it's important to carefully analyze the responsibilities of each class in your software system and refactor them when 
+necessary to ensure that each class has only one reason to change. If a class has multiple responsibilities, consider splitting it into multiple smaller classes, 
+each with a single, well-defined responsibility.
 
-Overall, following the Single Responsibility Principle helps in creating more maintainable, modular, and extensible software systems, which are essential for long-term success in software development.
+Overall, following the Single Responsibility Principle helps in creating more maintainable, modular, and extensible software systems, 
+which are essential for long-term success in software development.
 
 
 
