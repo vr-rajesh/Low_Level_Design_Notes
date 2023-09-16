@@ -3,19 +3,13 @@ SOLID Principles
 1. Single Responsibility principle 
 ----------------------------------
 The Single Responsibility Principle (SRP) is one of the five principles of object-oriented programming known as SOLID. 
-These principles were introduced by Robert C. Martin and are meant to guide software developers in writing more maintainable and scalable code. 
-The Single Responsibility Principle, in particular, focuses on the concept of cohesion in software design.
 
-The Single Responsibility Principle states that:
-
-"A class should have only one reason to change."
+The Single Responsibility Principle states that: "A class should have only one reason to change."
 
 In other words, a class should have a single, well-defined responsibility or purpose within the software system. 
 This principle encourages a separation of concerns and helps in creating classes that are more focused and easier to maintain. 
 When a class has only one responsibility, it becomes less likely to undergo frequent changes, 
 and any modifications that are necessary are more likely to be isolated to that specific responsibility.
-
-Here are a few key points and benefits of adhering to the Single Responsibility Principle:
 
 Improved Maintainability: When a class has a single responsibility, it is easier to understand, test, and maintain. 
 Changes to one responsibility are less likely to affect other parts of the code.
@@ -29,12 +23,85 @@ Reduced Coupling: By separating responsibilities, you reduce the coupling betwee
 Improved Collaboration: Teams of developers can work more effectively when classes have clear and distinct responsibilities because they can work on 
 different parts of the codebase without stepping on each other's toes.
 
-To apply the Single Responsibility Principle, it's important to carefully analyze the responsibilities of each class in your software system and refactor them when 
-necessary to ensure that each class has only one reason to change. If a class has multiple responsibilities, consider splitting it into multiple smaller classes, 
-each with a single, well-defined responsibility.
+============================================================================================================================================================================
+2. The Open/Closed Principle
+---------------------------
 
-Overall, following the Single Responsibility Principle helps in creating more maintainable, modular, and extensible software systems, 
-which are essential for long-term success in software development.
+"Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification."
+
+In other words, once a software component (such as a class or module) is created and working correctly, it should not be modified to add new functionality. 
+Instead, the component should be designed in a way that allows new functionality to be added through extension or subclassing without altering the existing code.
+
+Key points and benefits of adhering to the Open/Closed Principle include:
+
+Maintenance: By not modifying existing code, you reduce the risk of introducing new bugs when adding new features or making changes. 
+Existing functionality remains stable and reliable.
+
+Extensibility: The principle encourages designing software in a modular and extensible way. New features can be added by creating new subclasses or modules, 
+which promotes code reuse.
+
+Reduced Coupling: When you add new functionality through extension rather than modification, you avoid tightly coupling different parts of your code. 
+This reduces interdependencies and makes the codebase more flexible.
+==============================================================================================================================================================================
+3. Liskov Substitution Principle
+-------------------------------
+the Liskov Substitution Principle (LSP) states that objects of a superclass should be replaceable with objects of its subclasses without breaking the application. 
+In other words, what we want is to have the objects of our subclasses behaving the same way as the objects of our superclass.
+Polymorphism: The principle is a fundamental aspect of polymorphism in object-oriented programming.
+It ensures that different classes can be used interchangeably when they share a common interface or inheritance hierarchy.
+
+Code Reusability: Subclasses that adhere to the LSP can reuse the behaviour and properties of their base classes, promoting code reuse and reducing duplication.
+
+Flexibility: It allows for the creation of new classes that can seamlessly integrate with existing code, enhancing the flexibility and extensibility of the software.
+
+Consistency: By maintaining consistent behaviour across subclasses, the principle helps prevent unexpected errors and ensures that client code can rely on the 
+expected behaviour of objects.
+
+===============================================================================================================================================================================
+4. Interface segregation principle
+--------------------------------
+The interface Segregation Principle encourages the creation of interfaces that are specific and tailored to the needs of clients, promoting reduced coupling, 
+improved maintainability, and enhanced code reusability. It contributes to the overall goal of writing more maintainable and flexible software systems.
+
+The interface should be as light as possible, it should have less method as possible.
+The interface should have only 1 method which is called a functional Interface.
+Combine methods in an interface while logically belonging together
+
+==============================================================================================================================================================================
+5. Dependency Inversion Principle
+=================================
+The Dependency Inversion Principle focuses on how classes and modules should interact with each other to reduce coupling and promote flexibility.
+
+The Dependency Inversion Principle can be stated as follows:
+
+High-level modules should not depend on low-level modules. Both should depend on abstractions.
+Abstractions should not depend on details. Details should depend on abstractions.
+In simpler terms, this principle encourages a few key practices:
+
+Depend on abstractions, not concrete implementations: High-level modules (classes or components that provide application-specific functionality) should depend on abstract 
+interfaces or classes rather than low-level, concrete implementations. This promotes flexibility because it allows you to change or extend implementations without affecting 
+high-level code.
+
+Abstractions should not be tied to specific implementations: The abstract interfaces or classes (abstractions) should not be dependent on specific details of 
+their implementations. This ensures that changes to implementation details do not impact the abstractions.
+
+Avoid hard dependencies: High-level modules should not directly instantiate or create instances of low-level modules. Instead, dependencies should be provided from 
+the outside, typically through constructor injection or setter methods.
+
+In summary, the Dependency Inversion Principle encourages decoupling high-level and low-level modules by depending on abstractions and promoting a flexible, 
+extensible, and testable codebase. It plays a crucial role in achieving the goals of SOLID design principles and is a key concept in modern software architecture 
+and design patterns.
+
+----------------------------------------------------------------EOF---------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 
 
