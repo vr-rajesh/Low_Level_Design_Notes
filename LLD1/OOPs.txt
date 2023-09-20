@@ -1,0 +1,119 @@
+Object-oriented programming (OOP) is a programming paradigm that is widely used in Java and many other programming languages. 
+In OOP, software is organized around objects, which represent real-world entities or concepts. 
+Java is a popular object-oriented programming language known for its platform independence, strong typing, 
+and extensive standard library. Below are some fundamental concepts of object-oriented programming in Java:
+
+1. **Classes and Objects**:
+   - A class is a blueprint for creating objects. It defines the structure and behaviour of objects.
+   - An object is an instance of a class. It represents a real-world entity and contains both data (attributes) and methods (functions).
+
+   ```java
+   class Car {
+       // Attributes (instance variables)
+       String make;
+       String model;
+       int year;
+
+       // Methods (functions)
+       void start() {
+           // Code to start the car
+       }
+
+       void stop() {
+           // Code to stop the car
+       }
+   }
+
+   // Creating objects
+   Car myCar = new Car();
+   ```
+
+2. **Encapsulation**:
+   - Encapsulation is the practice of hiding the internal implementation details of a class and exposing a controlled interface.
+   - In Java, you can use access modifiers like `public`, `private`, and `protected` to control the visibility of class members.
+
+3. **Inheritance**:
+   - Inheritance allows a class (subclass/child) to inherit properties and methods from another class (superclass/parent).
+   - Java supports single inheritance for classes, meaning a class can inherit from only one superclass. 
+However, it supports multiple inheritance through interfaces.
+
+   ```java
+   class Animal {
+       void eat() {
+           // Code to eat
+       }
+   }
+
+   class Dog extends Animal {
+       void bark() {
+           // Code to bark
+       }
+   }
+   ```
+
+4. **Polymorphism**:
+   - Polymorphism allows objects of different classes to be treated as objects of a common superclass.
+   - Method overriding is a form of polymorphism where a subclass provides a specific implementation of a method defined in its superclass.
+
+   ```java
+   class Shape {
+       void draw() {
+           // Code to draw a shape
+       }
+   }
+
+   class Circle extends Shape {
+       @Override
+       void draw() {
+           // Code to draw a circle
+       }
+   }
+   ```
+
+5. **Abstraction**:
+   - Abstraction in Java is a process of hiding the implementation details from the user and showing only the functionality to the user.
+      It can be achieved by using abstract classes, methods, and interfaces. An abstract class is a class that cannot be instantiated on 
+      its own and is meant to be inherited by concrete classes.
+
+   ```java
+   abstract class Shape {
+       abstract void draw();
+   }
+   ```
+
+6. **Polymorphism via Interfaces**:
+   - Java uses interfaces to achieve a form of multiple inheritance and to define contracts that classes must adhere to.
+   
+   ```java
+   interface Vehicle {
+       void start();
+       void stop();
+   }
+
+   class Car implements Vehicle {
+       @Override
+       public void start() {
+           // Code to start a car
+       }
+
+       @Override
+       public void stop() {
+           // Code to stop a car
+       }
+   }
+   ```
+
+7. **Constructor**:
+   - Constructors are special methods used to initialize objects when they are created.
+   - Java provides default constructors if you don't define any, but you can also create your own constructors.
+
+   ```java
+   class Person {
+       String name;
+
+       // Constructor
+       Person(String n) {
+           name = n;
+       }
+   }
+   ```
