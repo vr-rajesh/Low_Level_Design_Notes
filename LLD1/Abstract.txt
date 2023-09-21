@@ -1,0 +1,54 @@
+In Java, an abstract class is a class that cannot be instantiated on its own and is often used as a blueprint for other classes. It is declared using the `abstract` keyword. Abstract classes can have both abstract (unimplemented) and concrete (implemented) methods. Here's an overview of abstract classes in Java:
+
+1. **Declaration:** You declare an abstract class using the `abstract` keyword in front of the class declaration. For example:
+
+   ```java
+   abstract class Shape {
+       // Fields, constructors, and methods can be defined here
+   }
+   ```
+
+2. **Abstract Methods:** Abstract classes can contain abstract methods, which are declared without a method body and are meant to be implemented by subclasses. For example:
+
+   ```java
+   abstract class Shape {
+       abstract double area(); // Abstract method with no implementation
+   }
+   ```
+
+3. **Concrete Methods:** Abstract classes can also have concrete methods, which provide default behavior that can be inherited by subclasses. These methods have implementations and are not marked as abstract. For example:
+
+   ```java
+   abstract class Shape {
+       abstract double area(); // Abstract method
+       
+       void display() {
+           System.out.println("This is a shape.");
+       }
+   }
+   ```
+
+4. **Inheritance:** Subclasses that extend an abstract class must either implement all the abstract methods defined in the superclass or be marked as abstract themselves. Here's an example of a subclass:
+
+   ```java
+   class Circle extends Shape {
+       private double radius;
+
+       public Circle(double radius) {
+           this.radius = radius;
+       }
+
+       @Override
+       double area() {
+           return Math.PI * radius * radius;
+       }
+   }
+   ```
+
+5. **Instantiation:** You cannot create an instance of an abstract class directly, but you can create instances of its concrete subclasses. For example:
+
+   ```java
+   Shape myShape = new Circle(5.0); // Valid, creating a Circle object
+   ```
+
+In summary, abstract classes in Java provide a way to define a common interface and some default behavior for related classes while allowing individual subclasses to provide their own implementations for specific methods. They are a key concept in Java's object-oriented programming paradigm and are useful for building hierarchies of related classes.

@@ -1,0 +1,78 @@
+Polymorphism is a fundamental concept in object-oriented programming (OOP) and is an important feature of the Java programming language. It allows objects of different classes to be treated as objects of a common superclass. Polymorphism enables you to write more flexible and reusable code by using a common interface or base class for a group of related classes. In Java, polymorphism is primarily achieved through method overriding and interfaces. Here's a brief overview of how polymorphism works in Java:
+
+1. Method Overriding:
+   - In Java, you can define a method in a subclass that has the same name, return type, and parameters as a method in its superclass. This is known as method overriding.
+   - When you create an object of the subclass and call the overridden method, the JVM determines which version of the method to execute based on the actual type of the object at runtime.
+   - This is often referred to as "dynamic method dispatch."
+
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class PolymorphismExample {
+    public static void main(String[] args) {
+        Animal myAnimal = new Dog(); // Polymorphism - Animal reference, Dog object
+        myAnimal.makeSound(); // Calls Dog's makeSound() method
+    }
+}
+```
+
+2. Interfaces:
+   - Java interfaces define a contract for classes to implement. Multiple classes can implement the same interface, allowing them to be treated polymorphically.
+   - Interfaces can also be used to achieve polymorphism by creating reference variables of the interface type and assigning objects of classes that implement the interface to those variables.
+
+```java
+interface Shape {
+    double area();
+}
+
+class Circle implements Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Rectangle implements Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public double area() {
+        return width * height;
+    }
+}
+
+public class PolymorphismWithInterfaces {
+    public static void main(String[] args) {
+        Shape shape1 = new Circle(5.0);
+        Shape shape2 = new Rectangle(4.0, 6.0);
+
+        System.out.println("Area of shape1 (Circle): " + shape1.area());
+        System.out.println("Area of shape2 (Rectangle): " + shape2.area());
+    }
+}
+```
+
+Polymorphism allows you to write more generic and flexible code because you can work with objects based on their common behavior (methods defined in the superclass or interface), rather than their specific types. This makes it easier to extend and maintain your code as you can add new classes that adhere to the same interface without needing to modify existing code.

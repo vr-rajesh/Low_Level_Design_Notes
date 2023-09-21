@@ -1,0 +1,57 @@
+In Java, the `final` keyword can be used in various contexts to indicate that something is unchangeable or has a specific behavior. Here are some common uses of the `final` keyword in Java:
+
+1. **Final Variables**: When you declare a variable as `final`, its value cannot be changed once it has been assigned. This is often used for constants.
+
+   ```java
+   final int x = 10;
+   // x = 20; // This will result in a compilation error
+   ```
+
+2. **Final Methods**: When you declare a method as `final` in a class, it means that the method cannot be overridden by subclasses.
+
+   ```java
+   class Parent {
+       final void show() {
+           System.out.println("This is a final method.");
+       }
+   }
+
+   class Child extends Parent {
+       // Cannot override the final method 'show'
+       // void show() { } // This will result in a compilation error
+   }
+   ```
+
+3. **Final Classes**: When you declare a class as `final`, it means that no other class can inherit from it. You cannot create subclasses of a `final` class.
+
+   ```java
+   final class MyFinalClass {
+       // Class members and methods here
+   }
+
+   // Cannot create a subclass of MyFinalClass
+   // class Subclass extends MyFinalClass { } // This will result in a compilation error
+   ```
+
+4. **Final Parameters**: When you declare a parameter as `final` in a method, it means that the parameter cannot be reassigned within the method.
+
+   ```java
+   void processData(final int value) {
+       // value = 20; // This will result in a compilation error
+       System.out.println("Value: " + value);
+   }
+   ```
+
+5. **Final Fields in Objects**: When you declare an instance variable as `final` in a class, it means that each object of the class can have a different value for that field, but once set, it cannot be changed.
+
+   ```java
+   class MyClass {
+       final int myField;
+
+       MyClass(int value) {
+           myField = value;
+       }
+   }
+   ```
+
+Using `final` appropriately can help improve code readability, maintainability, and prevent unintended changes or extensions of classes and methods.

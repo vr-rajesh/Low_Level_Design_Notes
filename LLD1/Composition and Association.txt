@@ -1,0 +1,67 @@
+In Java, composition and association are two different ways to establish relationships between classes in object-oriented programming. These relationships help in modeling the interactions and dependencies between objects. Let's explore each of these concepts:
+
+1. Composition:
+Composition is a strong "whole-part" relationship between classes, where one class (the composite or container) contains another class (the component or part) as a member. The component class cannot exist independently and has a strong connection to the container class. When the container class is instantiated, it typically creates instances of the component class and manages their lifecycle.
+
+Here's an example of composition in Java:
+
+```java
+class Engine {
+    // Engine implementation
+}
+
+class Car {
+    private Engine engine;
+
+    public Car() {
+        engine = new Engine(); // Composition: Car has an Engine
+    }
+
+    // Car methods and behavior
+}
+```
+
+In this example, the `Car` class contains an `Engine` object as a member, and the `Car` class is responsible for creating and managing the `Engine`. If the `Car` object is destroyed, the `Engine` object will typically also be destroyed.
+
+2. Association:
+Association is a more loosely coupled relationship between classes, where two classes are related, but neither class is a part of the other. The associated classes can exist independently, and their relationship can be bidirectional or unidirectional. Associations can be represented using fields, method parameters, or return types.
+
+Here's an example of association in Java:
+
+```java
+class Student {
+    private String name;
+    
+    public Student(String name) {
+        this.name = name;
+    }
+
+    // Student methods and behavior
+}
+
+class Course {
+    private String courseName;
+
+    public Course(String courseName) {
+        this.courseName = courseName;
+    }
+
+    // Course methods and behavior
+}
+
+class Enrollment {
+    private Student student;
+    private Course course;
+
+    public Enrollment(Student student, Course course) {
+        this.student = student;
+        this.course = course;
+    }
+
+    // Enrollment methods and behavior
+}
+```
+
+In this example, the `Enrollment` class represents an association between `Student` and `Course` classes. An enrollment connects a student to a course without one being a part of the other. The relationship is established through the `Enrollment` class, which holds references to both the `Student` and `Course` objects.
+
+In summary, composition and association are two different ways to model relationships between classes in Java. Composition represents a stronger, more tightly coupled relationship where one class contains another, while association represents a more flexible and loosely coupled relationship between classes. The choice between these two depends on the specific requirements of your application and the nature of the relationship you want to express.

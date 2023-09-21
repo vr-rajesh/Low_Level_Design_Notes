@@ -1,0 +1,91 @@
+Method overloading is a feature in Java (and many other programming languages) that allows you to define multiple methods in the same class with the same name but with different parameter lists. The key difference between these overloaded methods is the number or type of parameters they accept. When you invoke an overloaded method, the compiler determines which version of the method to call based on the number and types of arguments you provide.
+
+Here are some key points about method overloading in Java:
+
+1. Method Signature: Method overloading is based on the method signature, which includes the method name and the parameter list (number and types of parameters). The return type alone is not considered for overloading.
+
+2. Parameter Lists: Overloaded methods must have a different number of parameters or different types of parameters. The order of parameters doesn't matter; it's the number and types that distinguish overloaded methods.
+
+3. Return Type: Overloaded methods can have the same or different return types. The return type alone is not sufficient to differentiate overloaded methods.
+
+4. Access Modifiers: Overloaded methods can have different access modifiers (public, private, protected, or package-private), but they must be in the same class.
+
+Here's a simple example of method overloading in Java:
+
+```java
+public class MathUtils {
+    // Method to add two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Overloaded method to add three integers
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Overloaded method to add two double values
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        MathUtils math = new MathUtils();
+
+        int sum1 = math.add(10, 20);
+        int sum2 = math.add(10, 20, 30);
+        double sum3 = math.add(3.14, 2.71);
+
+        System.out.println("Sum1: " + sum1);
+        System.out.println("Sum2: " + sum2);
+        System.out.println("Sum3: " + sum3);
+    }
+}
+```
+
+In this example, the `MathUtils` class defines three overloaded `add` methods. Each method takes a different number or type of parameters. The `main` method demonstrates how you can call these overloaded methods with various arguments. The compiler determines which version of the `add` method to invoke based on the provided arguments.
+
+Method overloading is a useful technique for providing multiple ways to perform similar operations in a class while keeping the method names intuitive and easy to remember.
+
+Method overriding is a concept in Java that allows a subclass to provide a specific implementation for a method that is already defined in its superclass. When a subclass overrides a method from its superclass, it provides a different implementation of the method with the same name, return type, and parameters. This allows the subclass to customize the behavior of the inherited method.
+
+Here are the key rules and characteristics of method overriding in Java:
+
+1. Inheritance: Method overriding is only applicable in a class hierarchy where one class extends another. The overriding method in the subclass must have the same method signature (name, return type, and parameter list) as the method being overridden in the superclass.
+
+2. Access Modifiers: The overriding method in the subclass cannot have a more restrictive access modifier than the overridden method in the superclass. It can have the same or less restrictive access modifier. For example, if a method in the superclass is declared as `public`, the overriding method in the subclass can be `public` or `protected`, but not `private`.
+
+3. @Override Annotation: It's a good practice to use the `@Override` annotation when overriding a method. This annotation helps the compiler check if the method you intend to override is indeed present in the superclass. If you make a mistake in the method signature, the compiler will generate an error.
+
+4. Superclass Method: The overridden method in the superclass must be marked with the `public`, `protected`, or default (package-private) access modifier. Private methods and constructors cannot be overridden because they are not visible to subclasses.
+
+5. Covariant Return Type: Starting from Java 5, method overriding allows for a covariant return type, meaning the return type of the overriding method can be a subclass of the return type of the overridden method.
+
+Here's an example demonstrating method overriding:
+
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        Animal dog = new Dog();
+
+        animal.makeSound(); // Calls the Animal class's method
+        dog.makeSound();    // Calls the overridden method in the Dog class
+    }
+}
+```
+
+In this example, the `Dog` class overrides the `makeSound` method defined in the `Animal` class. When we create an instance of `Dog` and call `makeSound` on it, it executes the `Dog` class's overridden method, producing the output "Dog barks." Method overriding allows subclasses to provide their own implementation of inherited methods, enabling polymorphism and dynamic method dispatch in Java.
