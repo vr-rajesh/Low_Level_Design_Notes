@@ -1,0 +1,87 @@
+In Java, synchronization is a mechanism used to control access to shared resources or critical sections of code by multiple threads. 
+Without proper synchronization, when multiple threads access shared data concurrently, it can lead to data corruption, inconsistencies, a
+nd unpredictable behavior.
+
+Critical Section:
+=================
+A critical section refers to a section of code in a multithreaded program where one or more threads may access shared resources 
+or variables. It is crucial to ensure that only one thread can execute the critical section at a time to maintain data consistency 
+and prevent undesirable outcomes.
+
+Race Condition:
+================
+A race condition occurs when two or more threads attempt to access shared resources or variables concurrently, and the final 
+outcome depends on the timing or order of execution of the threads. Race conditions can lead to unpredictable behavior, data 
+corruption, and bugs in a program.
+
+fundamental properties and goals in concurrent programming and synchronization. Let's explore each of these concepts:
+
+Mutual Exclusion:
+------------------
+Mutual exclusion is a fundamental requirement in concurrent programming, and it ensures that only one thread can execute 
+a critical section of code at a time. This property prevents multiple threads from simultaneously accessing shared resources 
+or variables, which could lead to data corruption or race conditions.
+
+Progress:
+-------------
+Progress is another important property in concurrent programming. It ensures that if no threads are in the critical section 
+and some threads are trying to enter it, one of them will eventually be allowed to enter. In other words, progress guarantees 
+that the system does not remain deadlocked indefinitely.
+
+No Busy Waiting:
+----------------
+A thread should not check if the critical section is free rather the thread which in the creatical section should inform once 
+the task is completed.
+Busy waiting (or spinning) occurs when a thread repeatedly checks a condition or waits for a resource to become available 
+while actively consuming CPU resources. To avoid busy waiting, synchronization mechanisms should allow threads to wait in a
+ more efficient and passive state until the condition is met, rather than actively polling for it.
+
+Bounded Waiting:
+--------------
+No thread should should wait infinilely and there should be bound for how long a thread should wait.
+
+Solution to Synchronization Problem
+====================================
+1. Mutex
+2. Synchronization
+3. semaphores
+
+Mutex
+========
+In Java, a mutex, short for "mutual exclusion," is a synchronization mechanism used to enforce exclusive access to a shared resource or critical section of code. A mutex ensures that only one thread can access the protected resource or code block at a time, preventing concurrent access and potential race conditions. Java provides several mechanisms to implement mutexes:
+
+1. **Synchronized Blocks/Methods:**
+   In Java, you can use the `synchronized` keyword to create a mutex around a block of code or a method. When a thread enters a synchronized block or method, it acquires the associated mutex lock, and other threads are blocked from entering until the lock is released.
+
+   ```java
+   public synchronized void synchronizedMethod() {
+       // This method is protected by a mutex
+   }
+   ```
+
+2. **ReentrantLock:**
+   The `java.util.concurrent.locks.ReentrantLock` class provides a more flexible and powerful way to create mutexes. It allows for finer control over locking, such as specifying timeout durations and enabling fairness policies. You can use a `ReentrantLock` as follows:
+
+   ```java
+   import java.util.concurrent.locks.ReentrantLock;
+
+   ReentrantLock lock = new ReentrantLock();
+
+   public void someMethod() {
+       lock.lock(); // Acquire the lock
+       try {
+           // Protected code
+       } finally {
+           lock.unlock(); // Release the lock in a finally block
+       }
+   }
+   ```
+
+Properties of a Mutex in Java:
+
+1. Only one thread can unlocal the code at one time.
+2. Other threads wait units the inittial thread unlocks
+3. mutex will notify the next thread to tsrat execution 
+	when the initail thead completes execution
+
+4. It supports bounded waiting, no busy waiting.

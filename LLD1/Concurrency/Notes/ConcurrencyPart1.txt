@@ -1,0 +1,94 @@
+In Java, concurrency is a fundamental concept that allows you to execute multiple tasks or processes concurrently, 
+making better use of available system resources and potentially improving the performance of your applications. 
+Concurrency in Java is typically achieved through the use of processes and threads. 
+Let's introduce these concepts in more detail:
+
+1. **Processes**:
+   - In the context of Java, a process refers to a self-contained execution environment that includes its own memory space, resources, 
+and a single Java Virtual Machine (JVM) instance. Each Java application typically runs in its own process.
+   - Processes are heavyweight and relatively expensive in terms of system resources. They are isolated from each other, 
+and communication between processes often involves inter-process communication (IPC) mechanisms like sockets, pipes, or message queues.
+
+All data of an executing process is stored at RAM.
+
+2. **Threads**:
+   - Threads are lightweight subunits of a process that share the same memory space and resources as the parent process. They are also known as "lightweight processes."
+   - Java provides built-in support for creating and managing threads through the `java.lang.Thread` class.
+   - Threads allow you to perform multiple tasks simultaneously within a single process, and they are more efficient in terms of resource usage compared to processes.
+   - Threads in Java are often used to achieve concurrency within an application. For example, you can use threads to handle multiple clients in a server application 
+or to improve the responsiveness of a graphical user interface (GUI) application.
+
+Here's a simple example of creating and running a thread in Java:
+
+```java
+class MyThread extends Thread {
+    public void run() {
+        // Code to be executed in the thread
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Thread: " + i);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyThread thread = new MyThread();
+        thread.start(); // Start the thread
+
+        // Code executed by the main thread
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Main: " + i);
+        }
+    }
+}
+```
+
+In this example, we create a custom thread class `MyThread` that extends `Thread` and overrides the `run` method. 
+We start this thread using `start()`, and it runs concurrently with the main thread, producing interleaved output.
+
+Keep in mind that while threads provide concurrency, they also introduce challenges like thread synchronization,
+ which is essential for avoiding issues like race conditions when multiple threads access shared resources concurrently. 
+Java provides tools and mechanisms such as `synchronized` blocks, locks, and the `java.util.concurrent` package to help manage thread synchronization and coordination.
+
+
+Concurrency and parallelism
+=============================
+
+Concurrency and parallelism are two related but distinct concepts in the context of computer programming and multi-tasking. They both involve executing multiple 
+tasks or processes, but they differ in how these tasks are managed and executed.
+
+**Concurrency**:
+
+1. **Definition**: Concurrency is a concept where multiple tasks are executed in overlapping time intervals, allowing the illusion of simultaneous execution. 
+It doesn't necessarily mean that tasks are running simultaneously on multiple processors or cores.
+
+2. **Execution Model**: In a concurrent system, tasks are typically managed by a scheduler that switches between them rapidly, giving the appearance of parallelism. 
+These tasks can be processes or threads within a single process.
+
+3. **Use Cases**: Concurrency is commonly used to improve the efficiency and responsiveness of applications, especially when tasks may block or wait for 
+external resources (e.g., I/O operations). It allows an application to continue executing other tasks while waiting for slow operations to complete.
+
+4. **Example**: A web server handling multiple client requests concurrently. While one client's request is waiting for a database query to complete, 
+the server can process other incoming requests.
+
+**Parallelism**:
+
+1. **Definition**: Parallelism is the actual simultaneous execution of multiple tasks or processes on multiple processors or CPU cores, 
+with the goal of improving performance and achieving true parallel processing.
+
+2. **Execution Model**: Parallelism requires multiple physical or logical processing units, such as multiple CPU cores. 
+Each task is assigned to a separate processing unit and executes independently.
+
+3. **Use Cases**: Parallelism is used when you have computationally intensive tasks that can be divided into smaller 
+subtasks that can be executed in parallel. It is often used to take advantage of modern multi-core processors for speeding up calculations.
+
+4. **Example**: Image processing software that applies filters to different parts of an image simultaneously by 
+utilizing multiple CPU cores for parallel processing.
+
+In summary, concurrency is about managing and organizing tasks to make efficient use of available resources, 
+allowing tasks to overlap in execution. Parallelism, on the other hand, is about executing tasks simultaneously on 
+multiple processing units to achieve actual parallel execution and improve performance.
+
+It's worth noting that some programming languages and frameworks provide mechanisms for both concurrency and parallelism. 
+Java, for example, supports both through threads (concurrency) and the Java Fork-Join framework (parallelism), 
+which allows developers to write code that takes advantage of multi-core processors.
