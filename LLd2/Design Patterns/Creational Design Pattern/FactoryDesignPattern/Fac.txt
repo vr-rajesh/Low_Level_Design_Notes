@@ -1,0 +1,40 @@
+Abstract Factory Notes
+-------------------------
+Factory Design Pattern
+The Factory Design Pattern is a creational design pattern used to create objects without specifying the exact class of object that will be created. 
+It provides an interface or abstract class for creating objects, but the specific type of objects is determined by the concrete subclasses. 
+This pattern is useful for decoupling the client code from the details of object creation.
+
+Factory Method
+The Factory Method is a specific implementation of the Factory Design Pattern. 
+It defines an interface (or an abstract class) with a method for creating objects, 
+but it allows subclasses to implement this method to produce objects of different types
+
+
+Abstract Factory
+------------------
+The Abstract Factory is another variation of the Factory Design Pattern that provides an interface for creating 
+families of related or dependent objects without specifying their concrete classes. It's used when you need to ensure 
+that the created objects are compatible with each other.
+
+
+Difference Between Abstract Factory and Abstract Method
+-------------------------------------------------------- 
+The Abstract Factory and Factory Method patterns are both creational design patterns, but they serve different purposes 
+and have distinct characteristics. Here are the key differences between the Abstract Factory and Factory Method patterns:
+
+Intent:
+
+Abstract Factory: The Abstract Factory pattern provides an interface for creating families of related or dependent objects 
+without specifying their concrete classes. It is focused on creating multiple related products (objects) that work together. 
+The emphasis is on creating a family of products.
+
+Factory Method: The Factory Method pattern defines an interface for creating an object but allows subclasses to alter the 
+type of objects that will be created. It is focused on creating a single product (object) type with multiple variants. 
+The emphasis is on creating a single product.
+
+Scope:
+
+Abstract Factory: It deals with creating multiple related products that are designed to work together, forming a product family.
+
+Factory Method: It typically deals with the creation of a single product or a family of related products (but typically just one)
