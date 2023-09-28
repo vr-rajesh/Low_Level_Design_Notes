@@ -1,3 +1,6 @@
+Synchronization Introduction
+----------------------------
+
 In Java, synchronization is a mechanism used to control access to shared resources or critical sections of code by multiple threads. 
 Without proper synchronization, when multiple threads access shared data concurrently, it can lead to data corruption, inconsistencies, a
 nd unpredictable behavior.
@@ -48,10 +51,15 @@ Solution to Synchronization Problem
 
 Mutex
 ========
-In Java, a mutex, short for "mutual exclusion," is a synchronization mechanism used to enforce exclusive access to a shared resource or critical section of code. A mutex ensures that only one thread can access the protected resource or code block at a time, preventing concurrent access and potential race conditions. Java provides several mechanisms to implement mutexes:
+In Java, a mutex, short for "mutual exclusion," is a synchronization mechanism used to enforce exclusive access to a 
+shared resource or critical section of code. A mutex ensures that only one thread can access the protected resource
+or code block at a time, preventing concurrent access and potential race conditions. Java provides several mechanisms 
+to implement mutexes:
 
 1. **Synchronized Blocks/Methods:**
-   In Java, you can use the `synchronized` keyword to create a mutex around a block of code or a method. When a thread enters a synchronized block or method, it acquires the associated mutex lock, and other threads are blocked from entering until the lock is released.
+   In Java, you can use the `synchronized` keyword to create a mutex around a block of code or a method. When a 
+thread enters a synchronized block or method, it acquires the associated mutex lock, and other threads are 
+blocked from entering until the lock is released.
 
    ```java
    public synchronized void synchronizedMethod() {
@@ -60,7 +68,9 @@ In Java, a mutex, short for "mutual exclusion," is a synchronization mechanism u
    ```
 
 2. **ReentrantLock:**
-   The `java.util.concurrent.locks.ReentrantLock` class provides a more flexible and powerful way to create mutexes. It allows for finer control over locking, such as specifying timeout durations and enabling fairness policies. You can use a `ReentrantLock` as follows:
+   The `java.util.concurrent.locks.ReentrantLock` class provides a more flexible and powerful way to create mutexes.
+It allows for finer control over locking, such as specifying timeout durations and enabling fairness policies. 
+You can use a `ReentrantLock` as follows:
 
    ```java
    import java.util.concurrent.locks.ReentrantLock;
