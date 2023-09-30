@@ -1,0 +1,249 @@
+Collections & Generics
+======================
+Certainly! In Java, Collections and Generics are essential concepts for managing and working with data structures 
+and ensuring type safety in your code. Let's explore each of these concepts in more detail:
+
+**1. Collections:**
+Collections in Java provide a way to store, retrieve, and manipulate groups of objects. 
+Java offers several interfaces and classes in the `java.util` package to work with collections. 
+Some commonly used collection interfaces and classes include:
+
+- **List:** A List is an ordered collection of elements that allows duplicate values.
+Common implementations include `ArrayList` and `LinkedList`.
+
+- **Set:** A Set is a collection that does not allow duplicate elements. 
+Common implementations include `HashSet` and `TreeSet`.
+
+- **Map:** A Map is a collection that stores key-value pairs. Common implementations 
+include `HashMap`, `TreeMap`, and `LinkedHashMap`.
+
+- **Queue:** A Queue is a collection that represents a FIFO (First-In-First-Out) order. 
+Common implementations include `LinkedList` and `PriorityQueue`.
+
+- **Deque:** A Deque (Double-Ended Queue) is a collection that supports adding and removing 
+elements from both ends. Common implementations include `ArrayDeque`.
+
+Key concepts related to collections include iterators, which allow you to traverse through 
+the elements of a collection, and the enhanced for loop (for-each loop), which simplifies 
+iteration over collections.
+
+**2. Generics:**
+Generics in Java allow you to write classes and methods that can work with types as parameters, 
+making your code more reusable and type-safe. Generics provide compile-time type checking, 
+reducing the risk of runtime errors. Here's how generics work:
+
+- **Generic Classes:** You can create classes with type parameters by using angle brackets `<T>`,
+where `T` is a placeholder for the actual type. For example:
+
+  ```java
+  public class Box<T> {
+      private T value;
+      // Constructor, getter, setter, etc.
+  }
+  ```
+
+- **Generic Methods:** You can also create generic methods that work with different types. For example:
+  ```java
+  public <T> T findMax(List<T> list) {
+      // Implementation to find the maximum element in the list
+  }
+  ```
+
+Generics improve code readability and maintainability, as well as provide better compile-time error checking. 
+They are extensively used in collections to ensure type safety. For example, with generics, 
+you can create a `List<Integer>` to store only integers, and the compiler will enforce this constraint.
+
+Here's a simple example combining collections and generics to create a list of integers:
+
+```java
+List<Integer> integerList = new ArrayList<>();
+integerList.add(1);
+integerList.add(2);
+integerList.add(3);
+
+for (Integer num : integerList) {
+    System.out.println(num);
+}
+```
+
+
+
+=========================================================================================================================================
+Wrapper Classes
+===============
+Wrapper classes in Java are a set of classes provided by the Java standard library that allow you to work 
+with primitive data types as objects. They "wrap" or "encapsulate" primitive data types, such as `int`, `char`, 
+boolean`, etc., and provide useful methods for dealing with them in an object-oriented manner. Wrapper classes 
+are part of the `java.lang` package and are automatically imported into your Java programs, so you don't 
+need to explicitly import them.
+
+Here are the common wrapper classes in Java:
+
+1. **Integer (`java.lang.Integer`):** Wraps an `int` value and provides methods for converting, 
+parsing, and performing operations on integer values.
+
+   ```java
+   Integer myInt = 42; // Autoboxing
+   int intValue = myInt.intValue(); // Unboxing
+   ```
+
+Wrapper classes are commonly used in situations where primitive data types cannot be used, 
+such as in collections (e.g., `List<Integer>`) or when you need to work with object-oriented APIs 
+that expect objects rather than primitives. Additionally, they are useful for converting between 
+primitive types and their object counterparts.
+
+Here's an example of using a wrapper class in a list:
+
+```java
+List<Integer> numbers = new ArrayList<>();
+numbers.add(42); // Autoboxing: int to Integer
+numbers.add(55);
+int firstNumber = numbers.get(0); // Unboxing: Integer to int
+```
+
+=================================================================================================================================================================
+Certainly! Let's explore the topics of Exceptions, Custom Exceptions, `throws` and `throw` statements, 
+the immutability of Strings, and the differences between `StringBuilder` and `StringBuffer` in Java.
+
+**1. Exceptions:**
+   - **Exception:** In Java, an exception is an event that occurs during the execution of a program and 
+   disrupts its normal flow. Exceptions can be caused by various reasons, such as incorrect input, 
+   resource unavailability, or logical errors.
+   
+**2. Custom Exception:**
+   - **Custom Exception:** You can create your own custom exceptions in Java by extending the `Exception` 
+   class (or one of its subclasses, like `RuntimeException`). Custom exceptions are useful when you want 
+   to handle specific errors in your application.
+   
+   ```java
+   public class CustomException extends Exception {
+       public CustomException(String message) {
+           super(message);
+       }
+   }
+   ```
+
+**3. `throws` and `throw`:**
+   - **`throws`**: It is used in method declarations to indicate that the method may throw one or more 
+   specified exceptions. It tells the caller of the method what exceptions to expect.
+   
+   ```java
+   public void myMethod() throws SomeException {
+       // Code that might throw SomeException
+   }
+   ```
+
+   - **`throw`**: It is used to explicitly throw an exception within a method or block of code. 
+   You can throw both built-in exceptions and custom exceptions using the `throw` keyword.
+   
+   ```java
+   public void myMethod(int value) {
+       if (value < 0) {
+           throw new IllegalArgumentException("Value cannot be negative");
+       }
+       // Rest of the code
+   }
+   ```
+
+**4. String Immutability:**
+   - **String Immutability:** In Java, strings are immutable, which means once you create a string object, 
+   you cannot change its content. When you perform operations on strings (e.g., concatenation), 
+   it creates a new string object rather than modifying the original one. This immutability
+   has performance and thread-safety benefits.
+
+**5. `StringBuilder` vs. `StringBuffer`:**
+   - **`StringBuilder`:** Introduced in Java 5, `StringBuilder` is a mutable, non-synchronized class 
+   for creating and manipulating strings. It is more efficient than `StringBuffer` when used in single-threaded 
+   applications because it doesn't incur the synchronization overhead.
+   
+   ```java
+   StringBuilder sb = new StringBuilder();
+   sb.append("Hello, ");
+   sb.append("world!");
+   String result = sb.toString();
+   ```
+
+   - **`StringBuffer`:** `StringBuffer` is an older class that provides the same functionality as 
+   `StringBuilder` but is synchronized, making it safe for multi-threaded applications. However, 
+   this synchronization can lead to reduced performance in single-threaded scenarios.
+
+   ```java
+   StringBuffer sb = new StringBuffer();
+   sb.append("Hello, ");
+   sb.append("world!");
+   String result = sb.toString();
+   ```
+
+In summary, Java exceptions are used to handle unexpected events in a program. Custom exceptions 
+can be created to handle specific scenarios. The `throws` keyword is used to declare exceptions 
+that a method might throw, while the `throw` keyword is used to throw exceptions explicitly. 
+Strings in Java are immutable, and for mutable string manipulation, you can use `StringBuilder` 
+or `StringBuffer`, depending on your thread-safety requirements. `StringBuilder` is preferred 
+in single-threaded contexts, while `StringBuffer` is used in multi-threaded scenarios.
+
+Let's explore the topics you've mentioned:
+
+**2. Difference between String, StringBuilder, and StringBuffer:**
+
+- **String:** Strings in Java are immutable, meaning their values cannot be changed once they are created. Any operation that seems to modify a string actually creates a new string object. This makes them suitable for situations where the content doesn't change frequently, but it can be inefficient when you need to frequently modify strings.
+
+- **StringBuilder:** `StringBuilder` is a mutable sequence of characters, introduced in Java 5. It allows you to efficiently modify strings without creating new objects. It is not synchronized and, therefore, not thread-safe, making it faster in single-threaded scenarios.
+
+- **StringBuffer:** `StringBuffer` is similar to `StringBuilder` but is synchronized, making it thread-safe. This ensures that multiple threads can safely modify a `StringBuffer` object simultaneously. However, the synchronization overhead can make it slower in single-threaded scenarios compared to `StringBuilder`.
+
+**3. Internal Implementation of HashMap:**
+
+- A `HashMap` in Java uses an array of "buckets" to store key-value pairs. The keys are hashed to determine their bucket index, and each bucket can contain a linked list (or a balanced tree in Java 8 and later) of key-value pairs to handle hash code collisions. When the number of stored pairs exceeds a certain threshold, the `HashMap` resizes itself, redistributing the pairs into a larger array of buckets to maintain performance.
+
+**4. LinkedHashMap - Definition with Example:**
+
+- `LinkedHashMap` is a subclass of `HashMap` that maintains the order of key-value pairs based on their insertion order or access order. It provides predictable iteration order, making it suitable for use cases where you need to maintain insertion order.
+
+   Example:
+   ```java
+   LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
+   linkedHashMap.put("one", 1);
+   linkedHashMap.put("two", 2);
+   linkedHashMap.put("three", 3);
+
+   for (Map.Entry<String, Integer> entry : linkedHashMap.entrySet()) {
+       System.out.println(entry.getKey() + ": " + entry.getValue());
+   }
+   ```
+
+   Output:
+   ```
+   one: 1
+   two: 2
+   three: 3
+   ```
+
+**6. Why Strings are immutable in Java:**
+
+- Strings in Java are immutable to ensure their security, reliability, and efficiency. Immutability has several benefits:
+  - Security: Strings used for passwords or sensitive information cannot be changed once created.
+  - Reliability: String objects can be shared without the risk of unexpected changes.
+  - Caching: Strings are used as keys in various data structures like `HashMap`, where immutability ensures consistent behavior.
+  - Efficiency: String pooling and other optimizations are possible due to immutability.
+
+**7. ThreadPool:**
+
+- A thread pool is a pool of pre-initialized, reusable threads that are ready to perform tasks concurrently. It is a way to manage and control the number of threads executing in a program to improve performance and resource utilization. Java provides the `Executor` framework to work with thread pools, which includes classes like `ThreadPoolExecutor` and `Executors`.
+
+**8. Difference between `==` and `===`:**
+
+- In Java, there is no `===` operator. Instead, you have the `==` operator for comparing object references (addresses in memory) for equality. It checks if two references point to the same memory location.
+
+   Example:
+   ```java
+   String str1 = "Hello";
+   String str2 = "Hello";
+   String str3 = new String("Hello");
+
+   boolean isEqual1 = str1 == str2; // true (same memory location)
+   boolean isEqual2 = str1 == str3; // false (different memory locations)
+   ```
+
+   In JavaScript, `===` is used for strict equality comparison, checking both value and type. It's not applicable in Java.
+
+I hope these explanations help clarify the concepts you mentioned!
