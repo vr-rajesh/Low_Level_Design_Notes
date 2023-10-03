@@ -189,18 +189,26 @@ Let's explore the topics you've mentioned:
 Any operation that seems to modify a string actually creates a new string object. This makes them suitable 
 for situations where the content doesn't change frequently, but it can be inefficient when you need to frequently modify strings.
 
-- **StringBuilder:** `StringBuilder` is a mutable sequence of characters, introduced in Java 5. It allows you to efficiently
-modify strings without creating new objects. It is not synchronized and, therefore, not thread-safe, making it faster in single-threaded scenarios.
+- **StringBuilder:** `StringBuilder` is a mutable sequence of characters, introduced in Java 5.
+It allows you to efficiently modify strings without creating new objects. 
+It is not synchronized and, therefore, not thread-safe, making it faster in single-threaded scenarios.
 
-- **StringBuffer:** `StringBuffer` is similar to `StringBuilder` but is synchronized, making it thread-safe. This ensures that multiple threads can safely modify a `StringBuffer` object simultaneously. However, the synchronization overhead can make it slower in single-threaded scenarios compared to `StringBuilder`.
+- **StringBuffer:** `StringBuffer` is similar to `StringBuilder` but is synchronized, making it thread-safe. 
+This ensures that multiple threads can safely modify a `StringBuffer` object simultaneously. However, 
+synchronization overhead can make it slower in single-threaded scenarios compared to `StringBuilder`.
 
 **3. Internal Implementation of HashMap:**
 
-- A `HashMap` in Java uses an array of "buckets" to store key-value pairs. The keys are hashed to determine their bucket index, and each bucket can contain a linked list (or a balanced tree in Java 8 and later) of key-value pairs to handle hash code collisions. When the number of stored pairs exceeds a certain threshold, the `HashMap` resizes itself, redistributing the pairs into a larger array of buckets to maintain performance.
+- A `HashMap` in Java uses an array of "buckets" to store key-value pairs. The keys are hashed to determine 
+their bucket index, and each bucket can contain a linked list (or a balanced tree in Java 8 and later)
+of key-value pairs to handle hash code collisions. When the number of stored pairs exceeds a certain
+threshold, the `HashMap` resizes itself, redistributing the pairs into a larger array of buckets to maintain performance.
 
 **4. LinkedHashMap - Definition with Example:**
 
-- `LinkedHashMap` is a subclass of `HashMap` that maintains the order of key-value pairs based on their insertion order or access order. It provides predictable iteration order, making it suitable for use cases where you need to maintain insertion order.
+- `LinkedHashMap` is a subclass of `HashMap` that maintains the order of key-value 
+pairs based on their insertion order or access order. It provides predictable iteration 
+order, making it suitable for use cases where you need to maintain insertion order.
 
    Example:
    ```java
@@ -231,11 +239,16 @@ modify strings without creating new objects. It is not synchronized and, therefo
 
 **7. ThreadPool:**
 
-- A thread pool is a pool of pre-initialized, reusable threads that are ready to perform tasks concurrently. It is a way to manage and control the number of threads executing in a program to improve performance and resource utilization. Java provides the `Executor` framework to work with thread pools, which includes classes like `ThreadPoolExecutor` and `Executors`.
+- A thread pool is a pool of pre-initialized, reusable threads that are ready to perform tasks concurrently. 
+It is a way to manage and control the number of threads executing in a program to improve performance 
+and resource utilization. Java provides the `Executor` framework to work with thread 
+pools, which includes classes like `ThreadPoolExecutor` and `Executors`.
 
 **8. Difference between `==` and `===`:**
 
-- In Java, there is no `===` operator. Instead, you have the `==` operator for comparing object references (addresses in memory) for equality. It checks if two references point to the same memory location.
+- In Java, there is no `===` operator. Instead, you have the `==` operator 
+for comparing object references (addresses in memory) for equality. It checks 
+if two references point to the same memory location.
 
    Example:
    ```java
