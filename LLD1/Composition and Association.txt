@@ -1,7 +1,14 @@
-In Java, composition and association are two different ways to establish relationships between classes in object-oriented programming. These relationships help in modeling the interactions and dependencies between objects. Let's explore each of these concepts:
+In Java, composition and association are two different ways to establish relationships between classes in 
+object-oriented programming. 
+These relationships help in modelling the interactions and dependencies between objects. 
+Let's explore each of these concepts:
 
 1. Composition:
-Composition is a strong "whole-part" relationship between classes, where one class (the composite or container) contains another class (the component or part) as a member. The component class cannot exist independently and has a strong connection to the container class. When the container class is instantiated, it typically creates instances of the component class and manages their lifecycle.
+Composition is a strong "whole-part" relationship between classes, 
+where one class (the composite or container) contains another class (the component or part) as a member. 
+The component class cannot exist independently and has a strong connection to the container class. 
+When the container class is instantiated, it typically creates instances of the
+component class and manages their lifecycle.
 
 Here's an example of composition in Java:
 
@@ -17,14 +24,21 @@ class Car {
         engine = new Engine(); // Composition: Car has an Engine
     }
 
-    // Car methods and behavior
+    // Car methods and behaviour
 }
 ```
 
-In this example, the `Car` class contains an `Engine` object as a member, and the `Car` class is responsible for creating and managing the `Engine`. If the `Car` object is destroyed, the `Engine` object will typically also be destroyed.
+In this example, the `Car` class contains an `Engine` object as a member, 
+and the `Car` class is responsible for creating and managing the `Engine`.
+If the `Car` object is destroyed, the `Engine` object will typically also be destroyed.
 
 2. Association:
-Association is a more loosely coupled relationship between classes, where two classes are related, but neither class is a part of the other. The associated classes can exist independently, and their relationship can be bidirectional or unidirectional. Associations can be represented using fields, method parameters, or return types.
+The association is a more loosely coupled relationship between classes,
+where two classes are related, but neither class is a part of the other.
+
+The associated classes can exist independently, and their relationship can be
+bidirectional or unidirectional. Associations can be represented using fields,
+method parameters, or return types.
 
 Here's an example of association in Java:
 
@@ -36,7 +50,7 @@ class Student {
         this.name = name;
     }
 
-    // Student methods and behavior
+    // Student methods and behaviour
 }
 
 class Course {
@@ -46,7 +60,7 @@ class Course {
         this.courseName = courseName;
     }
 
-    // Course methods and behavior
+    // Course methods and behaviour
 }
 
 class Enrollment {
