@@ -1,8 +1,16 @@
-Polymorphism is a fundamental concept in object-oriented programming (OOP) and is an important feature of the Java programming language. It allows objects of different classes to be treated as objects of a common superclass. Polymorphism enables you to write more flexible and reusable code by using a common interface or base class for a group of related classes. In Java, polymorphism is primarily achieved through method overriding and interfaces. Here's a brief overview of how polymorphism works in Java:
+Polymorphism is a fundamental concept in object-oriented programming (OOP) and is an 
+important feature of the Java programming language. It allows objects of different 
+classes to be treated as objects of a common superclass. Polymorphism enables you to
+write more flexible and reusable code by using a common interface or base class for 
+a group of related classes. In Java, polymorphism is primarily achieved through method 
+overriding and interfaces. Here's a brief overview of how polymorphism works in Java:
 
 1. Method Overriding:
-   - In Java, you can define a method in a subclass that has the same name, return type, and parameters as a method in its superclass. This is known as method overriding.
-   - When you create an object of the subclass and call the overridden method, the JVM determines which version of the method to execute based on the actual type of the object at runtime.
+   - In Java, you can define a method in a subclass that has the same name,
+return type, and parameters as a method in its superclass. 
+This is known as method overriding.
+   - When you create an object of the subclass and call the overridden 
+method, the JVM determines which version of the method to execute based on the actual type of the object at runtime.
    - This is often referred to as "dynamic method dispatch."
 
 ```java
@@ -28,8 +36,11 @@ public class PolymorphismExample {
 ```
 
 2. Interfaces:
-   - Java interfaces define a contract for classes to implement. Multiple classes can implement the same interface, allowing them to be treated polymorphically.
-   - Interfaces can also be used to achieve polymorphism by creating reference variables of the interface type and assigning objects of classes that implement the interface to those variables.
+   - Java interfaces define a contract for classes to implement. Multiple classes can implement the same interface,
+
+allowing them to be treated polymorphically.
+   - Interfaces can also be used to achieve polymorphism by creating reference variables
+of the interface type and assigning objects of classes that implement the interface to those variables.
 
 ```java
 interface Shape {
