@@ -185,9 +185,12 @@ Let's explore the topics you've mentioned:
 
 **2. Difference between String, StringBuilder, and StringBuffer:**
 
-- **String:** Strings in Java are immutable, meaning their values cannot be changed once they are created. Any operation that seems to modify a string actually creates a new string object. This makes them suitable for situations where the content doesn't change frequently, but it can be inefficient when you need to frequently modify strings.
+- **String:** Strings in Java are immutable, meaning their values cannot be changed once they are created. 
+Any operation that seems to modify a string actually creates a new string object. This makes them suitable 
+for situations where the content doesn't change frequently, but it can be inefficient when you need to frequently modify strings.
 
-- **StringBuilder:** `StringBuilder` is a mutable sequence of characters, introduced in Java 5. It allows you to efficiently modify strings without creating new objects. It is not synchronized and, therefore, not thread-safe, making it faster in single-threaded scenarios.
+- **StringBuilder:** `StringBuilder` is a mutable sequence of characters, introduced in Java 5. It allows you to efficiently
+modify strings without creating new objects. It is not synchronized and, therefore, not thread-safe, making it faster in single-threaded scenarios.
 
 - **StringBuffer:** `StringBuffer` is similar to `StringBuilder` but is synchronized, making it thread-safe. This ensures that multiple threads can safely modify a `StringBuffer` object simultaneously. However, the synchronization overhead can make it slower in single-threaded scenarios compared to `StringBuilder`.
 
