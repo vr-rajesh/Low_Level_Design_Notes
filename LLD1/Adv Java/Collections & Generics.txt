@@ -279,3 +279,37 @@ returns true, that means there is already a node with the same key and hence the
 the entry(node), otherwise, a new node is created and added to this Singly Linked List of that bucket.
 
 If there is no key with the same hashCode in the bucket found by the hash function then the new Node is added to the bucket found.
+===========================================================================================================================================
+1. **Interface vs. Abstract Class:**
+   - **Interface:** 
+     - An interface is a contract that defines a set of abstract methods that must be implemented by any concrete class that implements the interface.
+     - Interfaces can only have abstract methods (prior to Java 8), and all methods declared in an interface are implicitly public and abstract.
+     - Multiple interfaces can be implemented by a single class, allowing for multiple inheritance of method signatures.
+     - Interface fields are implicitly public, static, and final (constants).
+   - **Abstract Class:**
+     - An abstract class is a class that cannot be instantiated and may have some concrete methods alongside abstract methods.
+     - Abstract classes can have instance variables (fields) and constructors, which interfaces cannot have.
+     - Subclasses of an abstract class must either provide implementations for all the abstract methods or be declared as abstract themselves.
+     - Abstract classes are used when you want to provide a common base for multiple related classes.
+
+2. **HashSet vs. TreeSet:**
+   - **HashSet:**
+     - HashSet is a collection in Java that implements the Set interface.
+     - It uses a hash table data structure to store elements, which provides constant-time average complexity for basic operations (add, remove, contains).
+     - HashSet does not guarantee any specific order of elements.
+   - **TreeSet:**
+     - TreeSet is also a collection in Java that implements the Set interface.
+     - It uses a Red-Black Tree data structure to store elements, which results in elements being sorted in natural order (or a specified order if a comparator is provided).
+     - TreeSet maintains elements in sorted order, making it suitable for situations where you need ordered elements.
+
+3. **Comparator vs. Comparable:**
+   - **Comparator:**
+     - Comparator is an interface in Java used for custom sorting of objects.
+     - You can create multiple comparator implementations to define different sorting criteria for the same class.
+     - Comparator is typically used when you want to sort objects that you don't have control over, or when you want to implement multiple sorting orders for a class.
+   - **Comparable:**
+     - Comparable is an interface in Java that is implemented by a class to define its natural ordering.
+     - When a class implements Comparable, it provides a single sorting order, which is the default sorting order for instances of that class.
+     - Comparable is typically used when you have control over the class definition and want to define a single, consistent sorting order for its instances.
+
+In summary, interfaces are used to define contracts with abstract methods, abstract classes can have both abstract and concrete methods, HashSet uses a hash table for storage, TreeSet uses a Red-Black Tree for sorted storage, and Comparator and Comparable are used for custom and natural sorting of objects, respectively.
