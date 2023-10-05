@@ -1,0 +1,142 @@
+Synchronization with semaphores is a common technique used in Java to control access to shared 
+resources by multiple threads. Semaphores are a concurrency primitive that can be used to manage 
+ to a limited number of resources. They can be used to implement various synchronization scenarios, 
+ such as limiting the number of concurrent threads accessing a resource or coordinating multiple 
+ threads to perform a task in a certain order.
+ 
+Mutex Locks allow only 1 thread in critical section while Semaphores 
+can allow multiple threads in the critical section at same time
+
+Counting Semaphore:
+===================
+This type of semaphore maintains a count of available permits. 
+Threads can acquire and release these permits. You can initialize a counting semaphore 
+with any positive integer value.
+
+Binary Semaphore (Mutex)
+=======================
+A binary semaphore is a special case of a counting semaphore 
+with an initial count of 1. It acts as a simple lock or mutex, allowing only one thread 
+to access the resource at a time.
+
+Semaphore Operations:
+Semaphores provide two fundamental operations:
+
+Acquire (acquire()): 
+====================
+When a thread wants to access a shared resource protected by a semaphore, 
+it calls the acquire() method. If permits are available (the semaphore's count is greater than zero),
+ the thread acquires a permit and continues its execution. Otherwise, the acquire() method blocks the 
+ thread until a permit becomes available.
+
+Release (release()):
+====================
+When a thread is done using the shared resource, it calls the release() method,
+ which increments the semaphore's count. This allows another waiting thread (if any) to acquire a
+ permit and access the resource.
+
+
+
+In Java, you can use the `java.util.concurrent.Semaphore` class to work with semaphores. 
+Here are some examples of how to use semaphores for synchronization:
+
+1. **Limiting Concurrent Access to Resources:**
+
+   Suppose you have a shared resource, like a connection pool, and you want to limit 
+   the number of threads that can access it simultaneously.
+
+   ```java
+   import java.util.concurrent.Semaphore;
+
+   public class ResourcePool {
+       private final Semaphore semaphore;
+
+       public ResourcePool(int maxResources) {
+           this.semaphore = new Semaphore(maxResources);
+       }
+
+       public void getResource() {
+           try {
+               semaphore.acquire(); // Acquire a resource permit
+               // Access the shared resource
+               // ...
+           } catch (InterruptedException e) {
+               Thread.currentThread().interrupt();
+           } finally {
+               semaphore.release(); // Release the resource permit
+           }
+       }
+
+       public void releaseResource() {
+           semaphore.release(); // Release a resource permit
+       }
+   }
+   ```
+
+   In this example, the `ResourcePool` class uses a semaphore to limit the number of threads that 
+   can access the shared resource simultaneously. Threads call `getResource()` to acquire a permit
+   and `releaseResource()` to release it when done.
+
+2. **Coordination Between Threads:**
+
+   You can also use semaphores to coordinate the execution of multiple threads in a specific 
+   order. Here's an example where three threads print "A," "B," and "C" in sequence.
+
+   ```java
+   import java.util.concurrent.Semaphore;
+
+   public class ThreadSequence {
+       private static Semaphore semaphoreA = new Semaphore(1);
+       private static Semaphore semaphoreB = new Semaphore(0);
+       private static Semaphore semaphoreC = new Semaphore(0);
+
+       public static void main(String[] args) {
+           Thread threadA = new Thread(() -> {
+               try {
+                   while (true) {
+                       semaphoreA.acquire();
+                       System.out.print("A ");
+                       semaphoreB.release();
+                   }
+               } catch (InterruptedException e) {
+                   Thread.currentThread().interrupt();
+               }
+           });
+
+           Thread threadB = new Thread(() -> {
+               try {
+                   while (true) {
+                       semaphoreB.acquire();
+                       System.out.print("B ");
+                       semaphoreC.release();
+                   }
+               } catch (InterruptedException e) {
+                   Thread.currentThread().interrupt();
+               }
+           });
+
+           Thread threadC = new Thread(() -> {
+               try {
+                   while (true) {
+                       semaphoreC.acquire();
+                       System.out.print("C ");
+                       semaphoreA.release();
+                   }
+               } catch (InterruptedException e) {
+                   Thread.currentThread().interrupt();
+               }
+           });
+
+           threadA.start();
+           threadB.start();
+           threadC.start();
+       }
+   }
+   ```
+
+  In this example, the three threads are coordinated using semaphores to ensure 
+  they print their respective letters in sequence.
+
+These are just a couple of examples of how you can use semaphores in Java for 
+synchronization. Semaphores provide a flexible way to manage concurrency and 
+coordinate thread activities in various scenarios.
