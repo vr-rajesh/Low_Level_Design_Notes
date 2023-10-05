@@ -313,3 +313,23 @@ If there is no key with the same hashCode in the bucket found by the hash functi
      - Comparable is typically used when you have control over the class definition and want to define a single, consistent sorting order for its instances.
 
 In summary, interfaces are used to define contracts with abstract methods, abstract classes can have both abstract and concrete methods, HashSet uses a hash table for storage, TreeSet uses a Red-Black Tree for sorted storage, and Comparator and Comparable are used for custom and natural sorting of objects, respectively.
+======================================================================================================================================
+`HashMap` and `Hashtable` are both data structures in Java used to store key-value pairs, but they have some key differences:
+
+1. **Synchronization:**
+   - **HashMap:** `HashMap` is not synchronized, which means it is not thread-safe. Multiple threads can access a `HashMap` concurrently without any synchronization, but this can lead to data corruption or unexpected behavior in a multi-threaded environment.
+   - **Hashtable:** `Hashtable` is synchronized, making it thread-safe. It ensures that only one thread can access it at a time. While this provides thread safety, it can also introduce performance overhead in a multi-threaded scenario.
+
+2. **Null Values:**
+   - **HashMap:** `HashMap` allows the use of `null` values for both keys and values. You can have a key-value pair where either the key, the value, or both are `null`.
+   - **Hashtable:** `Hashtable` does not allow `null` keys or values. Attempting to insert or retrieve a `null` key or value will result in a `NullPointerException`.
+
+3. **Performance:**
+   - **HashMap:** `HashMap` generally offers better performance than `Hashtable` in a single-threaded environment because it is not synchronized. However, in a multi-threaded environment, you may need to add external synchronization when using `HashMap`.
+   - **Hashtable:** `Hashtable` is synchronized by default, which makes it safer for multi-threaded use but potentially slower in single-threaded scenarios due to synchronization overhead.
+
+4. **Legacy:**
+   - **HashMap:** `HashMap` is part of the Java Collections Framework introduced in Java 1.2 and is the preferred choice for most use cases.
+   - **Hashtable:** `Hashtable` is an older class that predates the Collections Framework. It is considered a legacy class and is less commonly used in modern Java applications.
+
+In summary, the main differences between `HashMap` and `Hashtable` are synchronization (thread safety), handling of null values, and performance characteristics. `HashMap` is generally preferred for most scenarios due to its better performance and flexibility, while `Hashtable` is used in situations where strict synchronization is required or in legacy codebases.
