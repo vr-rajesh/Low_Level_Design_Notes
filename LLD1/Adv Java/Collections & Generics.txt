@@ -333,3 +333,26 @@ In summary, interfaces are used to define contracts with abstract methods, abstr
    - **Hashtable:** `Hashtable` is an older class that predates the Collections Framework. It is considered a legacy class and is less commonly used in modern Java applications.
 
 In summary, the main differences between `HashMap` and `Hashtable` are synchronization (thread safety), handling of null values, and performance characteristics. `HashMap` is generally preferred for most scenarios due to its better performance and flexibility, while `Hashtable` is used in situations where strict synchronization is required or in legacy codebases.
+
+
+
+Difference Between HashMap and Hashtable
++++++++++++++++++++++++++++++++++++++++++
+Hashtable and HashMap are both implementations of the Map interface in Java, but there are several key differences between them:
+
+Synchronization:
+
+Hashtable: All methods of Hashtable are synchronized, meaning that they are thread-safe. This ensures that multiple threads can safely manipulate a Hashtable without causing data corruption or inconsistency. While this provides thread safety, it can also introduce performance overhead.
+HashMap: Unlike Hashtable, HashMap is not synchronized by default. If thread safety is required, you need to explicitly synchronize the HashMap externally using mechanisms like Collections.synchronizedMap(map).
+Null Values:
+
+Hashtable: Neither keys nor values in a Hashtable can be null. If you try to insert a null key or value, a NullPointerException will be thrown.
+HashMap: Both keys and values in a HashMap can be null. It allows one null key and multiple null values.
+Performance:
+
+Hashtable: Due to its synchronized nature, Hashtable can be slower in a single-threaded environment compared to HashMap. In a multi-threaded environment, the synchronization can be an advantage if thread safety is a requirement.
+HashMap: Being unsynchronized, HashMap may offer better performance in a single-threaded scenario. However, if synchronization is needed, external synchronization mechanisms need to be applied.
+Iterator:
+
+Hashtable: The Iterator of a Hashtable is thread-safe.
+HashMap: The Iterator of a HashMap is not inherently thread-safe. If the map is modified while an iterator is in progress, it may result in undefined behavior.
