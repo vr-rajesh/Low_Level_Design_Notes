@@ -3,7 +3,7 @@ important feature of the Java programming language. It allows objects of differe
 classes to be treated as objects of a common superclass. Polymorphism enables you to
 write more flexible and reusable code by using a common interface or base class for 
 a group of related classes. In Java, polymorphism is primarily achieved through method 
-overriding and interfaces. Here's a brief overview of how polymorphism works in Java:
+overriding and method overloading. Here's a brief overview of how polymorphism works in Java:
 
 1. Method Overriding:
    - In Java, you can define a method in a subclass that has the same name,
