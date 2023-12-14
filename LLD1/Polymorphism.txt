@@ -35,55 +35,20 @@ public class PolymorphismExample {
 }
 ```
 
-2. Interfaces:
-   - Java interfaces define a contract for classes to implement. Multiple classes can implement the same interface,
+2. Method Overloading 
+Method overloading in Java allows a class to have multiple methods with the same name, but with different parameter lists. 
+The compiler determines which method to call based on the number and types of arguments passed to the method. 
+Method overloading is a form of compile-time (static) polymorphism.
 
-allowing them to be treated polymorphically.
-   - Interfaces can also be used to achieve polymorphism by creating reference variables
-of the interface type and assigning objects of classes that implement the interface to those variables.
+Here are the key rules and considerations for method overloading in Java:
 
-```java
-interface Shape {
-    double area();
-}
+Method Name: Methods must have the same name.
 
-class Circle implements Shape {
-    private double radius;
+Parameter Lists: Methods must have a different number or type of parameters. The order of parameters does not matter.
 
-    public Circle(double radius) {
-        this.radius = radius;
-    }
+Return Type: The return type does not play a role in method overloading. Two methods can have the same name and parameter list but different return types.
 
-    @Override
-    public double area() {
-        return Math.PI * radius * radius;
-    }
-}
+Access Modifiers: The access modifiers can be the same or different.
 
-class Rectangle implements Shape {
-    private double width;
-    private double height;
-
-    public Rectangle(double width, double height) {
-        this.width = width;
-        this.height = height;
-    }
-
-    @Override
-    public double area() {
-        return width * height;
-    }
-}
-
-public class PolymorphismWithInterfaces {
-    public static void main(String[] args) {
-        Shape shape1 = new Circle(5.0);
-        Shape shape2 = new Rectangle(4.0, 6.0);
-
-        System.out.println("Area of shape1 (Circle): " + shape1.area());
-        System.out.println("Area of shape2 (Rectangle): " + shape2.area());
-    }
-}
-```
-
-Polymorphism allows you to write more generic and flexible code because you can work with objects based on their common behavior (methods defined in the superclass or interface), rather than their specific types. This makes it easier to extend and maintain your code as you can add new classes that adhere to the same interface without needing to modify existing code.
+Exceptions: The methods can declare different sets of checked exceptions. However, if a method in a subclass overrides a
+method in its superclass, the overriding method cannot declare more checked exceptions than the overridden method.
